@@ -20,8 +20,8 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
-import utils.Archivador;
 import utils.ControladorEscenas;
+import utils.FileManager.ClientesFiles;
 
 public class InicioViewController implements Initializable {
 
@@ -31,13 +31,13 @@ public class InicioViewController implements Initializable {
     @FXML
     private Button btnIngresar;
 
-    private Archivador archivador;
+    private ClientesFiles cFiles;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
-        archivador = new Archivador();
-        archivador.cargarCuentas();
+        cFiles = ClientesFiles.getInstance();
+        cFiles.cargarCuentas();
     }
 
     @FXML
@@ -100,7 +100,7 @@ public class InicioViewController implements Initializable {
                 System.out.println("Haciendo login");
                 ControladorEscenas.nuevaEscena(getClass().getResource("/views/ClientesListaView.fxml"));
 
-            } else if (Archivador.mapaPass.containsKey(numeroCuenta) && verificarPass(numeroCuenta, NIP)) {
+            } else if (ClientesFiles.mapaPass.containsKey(numeroCuenta) && verificarPass(numeroCuenta, NIP)) {
                 // Metodo para cargar OperacionesView
                 System.out.println("Haciendo login");
                 ControladorEscenas controlador = new ControladorEscenas();
@@ -117,7 +117,7 @@ public class InicioViewController implements Initializable {
     }
 
     private boolean verificarPass(String cuenta, String password) {
-        return Archivador.mapaPass.get(cuenta).equals(password);
+        return ClientesFiles.mapaPass.get(cuenta).equals(password);
     }
 
 }

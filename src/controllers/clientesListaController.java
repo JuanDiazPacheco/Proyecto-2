@@ -13,8 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.perfiles.Cliente;
-import utils.Archivador;
 import utils.ControladorEscenas;
+import utils.FileManager.ClientesFiles;
 
 public class clientesListaController implements Initializable {
 
@@ -25,7 +25,7 @@ public class clientesListaController implements Initializable {
     private TableColumn<Cliente, String> colSaldo;
     private TableColumn<Cliente, String> colDireccion;
 
-    private Archivador archivador;
+    private ClientesFiles cFiles;
 
     @FXML
     private Button btnRegresar;
@@ -35,7 +35,7 @@ public class clientesListaController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        archivador = new Archivador();
+        cFiles = ClientesFiles.getInstance();
         // clientesTable = new TableView<>();
         colNombre = new TableColumn<Cliente, String>("Nombre");
         colSaldo = new TableColumn<Cliente, String>("Saldo");
@@ -51,9 +51,9 @@ public class clientesListaController implements Initializable {
         clientesTable.getColumns().add(colSaldo);
         clientesTable.getColumns().add(colDireccion);
 
-        for (String numeroCuenta : Archivador.numerosCuentas) {
+        for (String numeroCuenta : ClientesFiles.numerosCuentas) {
 
-            Cliente cliente = archivador.cargarCliente(numeroCuenta);
+            Cliente cliente = cFiles.cargarCliente(numeroCuenta);
 
             clientesTable.getItems().add(cliente);
         }

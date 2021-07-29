@@ -10,31 +10,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import models.perfiles.Cliente;
-import models.perfiles.cuentas.CuentaAhorro;
-import utils.Archivador;
+import models.perfiles.cuentas.CuentaSaldo;
 import utils.ControladorEscenas;
+import utils.FileManager.ClientesFiles;
 
 public class DepositoController implements Initializable {
 
     @FXML
     private TextField txtMonto;
 
-    private Archivador archivador;
+    private ClientesFiles cFiles;
     private Cliente cliente;
     private ControladorEscenas controlador;
-    private CuentaAhorro cuentaAhorro;
+    private CuentaSaldo cuentaAhorro;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String numeroCuenta;
 
         // Instancianso objetos esenciales
-        archivador = new Archivador();
+        cFiles = ClientesFiles.getInstance();
         controlador = new ControladorEscenas();
 
         // Instancacias del cliente
         numeroCuenta = (String) controlador.recibirDatos();
-        cliente = archivador.cargarCliente(numeroCuenta);
+        cliente = cFiles.cargarCliente(numeroCuenta);
         cuentaAhorro = cliente.getCuentaAhorro();
     }
 
@@ -46,7 +46,7 @@ public class DepositoController implements Initializable {
         // Verificar si funciona!!
         cuentaAhorro.depositarDinero(deposito);
 
-        archivador.escribirArchivoCliente(cliente);
+        cFiles.escribirArchivoCliente(cliente);
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/OperacionesCliente.fxml"));
     }
 

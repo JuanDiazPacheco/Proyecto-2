@@ -5,12 +5,11 @@ import java.util.LinkedList;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import models.perfiles.cuentas.CuentaAhorro;
+import models.perfiles.cuentas.CuentaSaldo;
 
 public class Cliente extends Persona {
     private String numeroCuenta;
-
-    private CuentaAhorro cuentaAhorro;
+    private CuentaSaldo cuentaAhorro;
 
     // Metodos Constructores
 
@@ -19,7 +18,7 @@ public class Cliente extends Persona {
         super(nombre, apellidos, direccion, nacimiento);
 
         this.numeroCuenta = cuenta;
-        cuentaAhorro = new CuentaAhorro(monto);
+        cuentaAhorro = new CuentaSaldo(monto);
     }
 
     public Cliente(String nombreCompleto, String direccion, String nacimiento, String monto, String cuenta) {
@@ -27,62 +26,24 @@ public class Cliente extends Persona {
         super(nombreCompleto, direccion, nacimiento);
 
         this.numeroCuenta = cuenta;
-        this.cuentaAhorro = new CuentaAhorro(Float.parseFloat(monto));
+        this.cuentaAhorro = new CuentaSaldo(Float.parseFloat(monto));
     }
 
     // GETTERS
 
-    public String toString() {
-
-        // Cadena para creacion de archivos
-        return String.join("\n", "Numero Cuenta:" + numeroCuenta, super.toString(),
-                "Saldo Cuenta de Ahorros:" + cuentaAhorro.getDinero() + "\n");
-
-    }
-
     public String getNumeroCuenta() {
         return this.numeroCuenta;
-    }
-
-    // Metodos getter de las cuentas se tiene DUDAS
-
-    public String getSaldoAhorro() {
-        return String.valueOf(cuentaAhorro.getDinero());
     }
 
     public LinkedList<String> getOperaciones() {
         return cuentaAhorro.getOperaciones();
     }
 
-    public CuentaAhorro getCuentaAhorro() {
+    public CuentaSaldo getCuentaAhorro() {
         return cuentaAhorro;
     }
 
-    // SETTERS
-
-    public void setOperaciones(LinkedList<String> operaciones) {
-        cuentaAhorro.setOperaciones(operaciones);
-    }
-
-    // Metodo setter para cargar la cuenta de inversion desde un archivo
-
-    public void setCuentaAhorro(CuentaAhorro cuentaAhorro) {
-        this.cuentaAhorro = cuentaAhorro;
-    }
-
-    // Metodos
-
-    // Metodo para depositar dinero, se tiene duda sobre este método
-
-    public boolean retirarDinero(double monto) {
-        return cuentaAhorro.retirarDinero(monto, false);
-    }
-
-    // Metodo para depositar dinero, se tiene duda sobre este método
-
-    public void depositarDinero(double deposito) {
-        cuentaAhorro.depositarDinero(deposito);
-    }
+    // GETTERS para la listas
 
     public StringProperty getNombreCompletoProperty() {
         StringProperty property = new SimpleStringProperty();
@@ -96,8 +57,28 @@ public class Cliente extends Persona {
     }
 
     public StringProperty getSaldoAhorroProperty() {
-        StringProperty property = new SimpleStringProperty(getSaldoAhorro());
+        StringProperty property = new SimpleStringProperty(String.valueOf(this.cuentaAhorro.getDinero()));
         return property;
+    }
+
+    // SETTERS
+
+    public void setOperaciones(LinkedList<String> operaciones) {
+        cuentaAhorro.setOperaciones(operaciones);
+    }
+
+    public void setCuentaAhorro(CuentaSaldo cuentaAhorro) {
+        this.cuentaAhorro = cuentaAhorro;
+    }
+
+    // Otros métodos
+
+    public String toString() {
+
+        // Cadena para creacion de archivos
+        return String.join("\n", "Numero Cuenta:" + numeroCuenta, super.toString(),
+                "Saldo Cuenta de Ahorros:" + cuentaAhorro.getDinero() + "\n");
+
     }
 
 }

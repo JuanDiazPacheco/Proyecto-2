@@ -1,4 +1,4 @@
-package utils;
+package utils.FileManager;
 
 import java.util.Scanner;
 import java.io.File;
@@ -16,11 +16,23 @@ import java.util.Map;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Archivador {
+public class ClientesFiles {
 
-    public static Scanner sc = new Scanner(System.in);
+    // public static Scanner sc = new Scanner(System.in);
     public static Set<String> numerosCuentas = new HashSet<>();
     public static HashMap<String, String> mapaPass = new HashMap<>();
+
+    private static ClientesFiles cFiles;
+
+    private ClientesFiles() {
+
+    }
+
+    public static ClientesFiles getInstance() {
+        if (cFiles == null)
+            cFiles = new ClientesFiles();
+        return cFiles;
+    }
 
     // Metodo para crear el archivo de un cliente
 

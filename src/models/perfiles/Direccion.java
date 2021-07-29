@@ -28,7 +28,7 @@ public class Direccion {
 
     // Metodos Getters
 
-    public String consulta() {
+    public String toString() {
         String direccionCompleta = String.join(",", estado, colonia, String.valueOf(codigoPostal), calle,
                 String.valueOf(numero));
         return direccionCompleta;

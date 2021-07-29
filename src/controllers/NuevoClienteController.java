@@ -16,12 +16,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyEvent;
 import models.perfiles.Cliente;
 import models.perfiles.Direccion;
-import utils.Archivador;
 import utils.ControladorEscenas;
+import utils.FileManager.ClientesFiles;
 
 public class NuevoClienteController {
 
-    private Archivador archivador = new Archivador();
+    private ClientesFiles cFiles = ClientesFiles.getInstance();
 
     @FXML
     private DatePicker dpNacimiento;
@@ -244,8 +244,8 @@ public class NuevoClienteController {
 
         // Contraseña
         password = txtPassword.getText();
-        archivador.escribirArchivoClientes(numeroCuenta, password);
-        archivador.escribirArchivoCliente(cliente);
+        cFiles.escribirArchivoClientes(numeroCuenta, password);
+        cFiles.escribirArchivoCliente(cliente);
     }
 
     private String genNumeroCuenta() {
@@ -259,10 +259,10 @@ public class NuevoClienteController {
             // Se crea la String que se devolvera
             numeroCuenta = String.valueOf(numeroaleatorio);
             // Condicion que revisa que el numero de cuenta no este repetido;
-        } while (Archivador.numerosCuentas.contains(numeroCuenta));
+        } while (ClientesFiles.numerosCuentas.contains(numeroCuenta));
 
         // Se añade el numero de cuenta del nuevo cliente al conjunto.
-        Archivador.numerosCuentas.add(numeroCuenta);
+        ClientesFiles.numerosCuentas.add(numeroCuenta);
         return String.valueOf(numeroCuenta);
     }
 

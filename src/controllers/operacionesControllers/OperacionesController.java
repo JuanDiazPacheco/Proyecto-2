@@ -9,8 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import models.perfiles.Cliente;
-import utils.Archivador;
 import utils.ControladorEscenas;
+import utils.FileManager.ClientesFiles;
 
 public class OperacionesController implements Initializable {
 
@@ -29,7 +29,7 @@ public class OperacionesController implements Initializable {
     @FXML
     private Button btnDeposito;
 
-    private Archivador archivador;
+    private ClientesFiles cFiles;
     private Cliente cliente;
     private ControladorEscenas controlador;
 
@@ -38,16 +38,16 @@ public class OperacionesController implements Initializable {
         String numeroCuenta;
 
         // Instancianso objetos esenciales
-        archivador = new Archivador();
+        cFiles = ClientesFiles.getInstance();
         controlador = new ControladorEscenas();
 
         // Instancacias del cliente
         numeroCuenta = (String) controlador.recibirDatos();
-        cliente = archivador.cargarCliente(numeroCuenta);
+        cliente = cFiles.cargarCliente(numeroCuenta);
 
         // Instancias de la interfaz
         lblNombre.setText(cliente.getNombreCompleto());
-        lblSaldo.setText(cliente.getSaldoAhorro() + "$");
+        lblSaldo.setText(cliente.getCuentaAhorro().getDinero() + "$");
     }
 
     @FXML

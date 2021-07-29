@@ -14,7 +14,7 @@ public class Persona {
     }
 
     public String getDireccion() {
-        return direccion.consulta();
+        return direccion.toString();
     }
 
     public void setNombre(String nombre) {
@@ -62,7 +62,7 @@ public class Persona {
             nombreCompleto = String.join(" ", nombre, ",", apellidoPaterno, apellidoMaterno);
         else
             nombreCompleto = String.join(" ", nombre, ",", apellidoPaterno);
-        String direccionCompleta = direccion.consulta();
+        String direccionCompleta = direccion.toString();
         return String.join("\n", "Nombre:" + nombreCompleto, "Direccion:" + direccionCompleta,
                 "Nacimiento:" + nacimiento);
     }
