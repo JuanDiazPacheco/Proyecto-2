@@ -23,7 +23,7 @@ public class ControladorEscenas {
         }
     }
 
-    public void setStage(Stage stageSent) {
+    public static void setStage(Stage stageSent) {
         stage = stageSent;
     }
 

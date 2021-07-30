@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import models.perfiles.Cliente;
 import utils.ControladorEscenas;
 import utils.FileManager.ClientesFiles;

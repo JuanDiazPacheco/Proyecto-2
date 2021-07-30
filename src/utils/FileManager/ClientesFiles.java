@@ -142,7 +142,7 @@ public class ClientesFiles {
             File archivo = new File(numeroCuenta + ".txt");
             Scanner scanner = new Scanner(archivo);
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 5; i++) {
                 String[] arr = scanner.nextLine().split(":");
                 mapaCliente.put(arr[0], arr[1]);
             }

@@ -58,3 +58,82 @@
     -fx-pref-height: 50px;
 }
 
+.sideBar{
+    -fx-background-color: #F5DD7B;
+}
+
+.btnItemSide{
+    -fx-background-color: inherit;
+    -fx-width: 100%;
+
+    -fx-padding: 10;
+    -fx-background-radius:0;
+    -fx-border-radius:0;
+
+    -fx-pref-width:100px;
+    -fx-pref-height: 25px;
+    -fx-border-color: inherit;
+
+    -fx-text-fill:#3E3E3E;
+    -fx-font-size:17;
+    -fx-font-weight:bold;
+}
+
+.btnItemSide:hover{
+    -fx-border-width: 0 10px 0 0;
+    -fx-border-color: #D9B650;
+    -fx-background-color: #FDE994;
+}
+
+/*Menubar*/
+
+.menuBar{
+    -fx-background-color: #EF4A4A;
+}
+
+ .btnItemMenu{
+    -fx-background-color: inherit;
+
+    -fx-padding: 10;
+    -fx-background-radius:0;
+    -fx-border-radius:0;
+
+    -fx-pref-width:100px;
+    -fx-pref-height: 25px;
+    -fx-border-color: inherit;
+
+    -fx-text-fill:#FFFF;
+    -fx-font-size:15;
+    -fx-font-weight:bold;
+}
+
+.btnItemMenu:hover{
+    -fx-border-width: 0 0 10px 0;
+    -fx-border-color: #D32D2D;
+    -fx-background-color: #F36363;
+}
+
+.btnLogo{
+    -fx-background-color: inherit;
+
+    -fx-padding: 10;
+    -fx-background-radius:0;
+    -fx-border-radius:0;
+
+    -fx-pref-width:100px;
+    -fx-pref-height: 25px;
+    -fx-border-color: inherit;
+
+    -fx-text-fill:#FFFF;
+    -fx-font-size:20;
+    -fx-font-weight:bold;
+}
+
+.btnLogo:hover{
+    -fx-border-width: 0;
+    -fx-border-color: none;
+    -fx-background-color: none;
+}
+
+
+

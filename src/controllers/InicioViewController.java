@@ -98,7 +98,8 @@ public class InicioViewController implements Initializable {
 
             if (numeroCuenta.equals("admin") && NIP.equals("admin")) {
                 System.out.println("Haciendo login");
-                ControladorEscenas.nuevaEscena(getClass().getResource("/views/ClientesListaView.fxml"));
+                // ControladorEscenas.nuevaEscena(getClass().getResource("/views/ClientesListaView.fxml"));
+                ControladorEscenas.nuevaEscena(getClass().getResource("/views/DepartamentoView.fxml"));
 
             } else if (ClientesFiles.mapaPass.containsKey(numeroCuenta) && verificarPass(numeroCuenta, NIP)) {
                 // Metodo para cargar OperacionesView
