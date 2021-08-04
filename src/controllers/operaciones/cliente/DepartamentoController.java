@@ -69,8 +69,9 @@ public class DepartamentoController implements Initializable {
     // Operaciones Tienda
 
     private void cargarSecciones(Set<String> labels, List<Producto> productos) {
-        // TODO revisar que funcione
+        // TODO revisar como borrar las listas
         lista.clear();
+        seccionesVBox.getChildren().clear();
 
         // Carga y distribuye secciones
         for (String seccion : labels) {
@@ -86,6 +87,7 @@ public class DepartamentoController implements Initializable {
 
         int i = 0;
         for (String seccion : labels) {
+            // TODO if la lista de seccion esta vacia no agregar
             seccionesVBox.getChildren().add(new Label(seccion));
 
             seccionesVBox.getChildren().add(new CarouselComponent(lista.get(i)));
