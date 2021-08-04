@@ -6,6 +6,7 @@ public abstract class Producto {
     private String marca;
     private String imagen;
     protected String departamento;
+
     protected String sDepartamento;
 
     public Producto(String nombre, String precio) {

@@ -52,8 +52,10 @@ public class ProductoFactory {
                 return new Playeras();
             case "Zapatos":
                 return new Zapatos();
+            default:
+                return new Ropa();
         }
-        return null;
+
     }
 
     private static Electronicos nuevoElectronico(String sDepartamento) {
@@ -62,8 +64,10 @@ public class ProductoFactory {
                 return new Celulares();
             case "Pantallas":
                 return new Pantallas();
+            default:
+                return new Electronicos();
         }
-        return null;
+
     }
 
     private static Comida nuevaComida(String sDepartamento) {
@@ -72,8 +76,10 @@ public class ProductoFactory {
                 return new Frutas();
             case "Bebidas":
                 return new Bebidas();
+            default:
+                return new Comida();
         }
-        return null;
+
     }
 
 }

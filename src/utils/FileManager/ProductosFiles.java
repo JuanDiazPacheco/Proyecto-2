@@ -1,9 +1,11 @@
 package utils.FileManager;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.nio.channels.FileChannel;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -39,8 +41,10 @@ public class ProductosFiles {
                 scanner = new Scanner(file);
                 // scanner.useDelimiter(",");
 
-                if (scanner.hasNext())
-                    scanner.nextLine().split(",");
+                if (scanner.hasNext()) {
+                    scanner.nextLine();
+                    scanner.nextLine();
+                }
 
                 while (scanner.hasNext()) {
                     atributos = scanner.nextLine().split(",");
@@ -60,6 +64,7 @@ public class ProductosFiles {
 
     public void escribir(Producto producto) {
         File file;
+
         FileWriter fWriter;
         String departamento = producto.getDepartamento();
 
@@ -76,6 +81,48 @@ public class ProductosFiles {
             System.out.println("Error " + e.getMessage());
         }
 
+    }
+
+    public String copiarImagen(String origen, String departamento) {
+        FileChannel src, dest;
+        String ruta = "";
+
+        File routeDestino = new File("src/images/" + departamento);
+        File fOrigen = new File(origen);
+
+        if (!routeDestino.exists())
+            nuevoDirImagen(routeDestino);
+
+        File fDestino = new File(routeDestino, fOrigen.getName());
+
+        try {
+            src = new FileInputStream(fOrigen).getChannel();
+            dest = new FileOutputStream(fDestino).getChannel();
+
+            try {
+                dest.transferFrom(src, 0, src.size());
+            } finally {
+                // Closing the source channel
+                src.close();
+                // Closing the destination channel
+                dest.close();
+                ruta = fDestino.getAbsolutePath();
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            return ruta;
+        }
+
+    }
+
+    private void nuevoDirImagen(File routeDestino) {
+        try {
+            routeDestino.mkdir();
+        } catch (SecurityException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void nuevoDepartamento(File file, String departamento) {

@@ -81,6 +81,11 @@ public abstract class FormsFields implements Initializable {
                 isCorrect = isCorrect | isEmpty(tField);
             }
 
+        if (floatsFieldsList != null)
+            for (TextField tField : floatsFieldsList) {
+                isCorrect = isCorrect | isEmpty(tField);
+            }
+
         return isCorrect;
     }
 

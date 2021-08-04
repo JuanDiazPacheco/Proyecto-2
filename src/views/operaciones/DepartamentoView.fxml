@@ -58,22 +58,22 @@
                <children>
                   <AnchorPane onMouseClicked="#handleComidaAction" prefHeight="61.0" prefWidth="146.0">
                      <children>
-                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Comida" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleComidaAction" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Comida" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane onMouseClicked="#handleElectronicaAction" prefHeight="61.0" prefWidth="146.0">
                      <children>
-                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Electronica" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleElectronicaAction" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Electronica" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane onMouseClicked="#handleRopaAction" prefHeight="61.0" prefWidth="146.0">
                      <children>
-                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Ropa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleRopaAction" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Ropa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane onMouseClicked="#handleDeportesAction" prefHeight="61.0" prefWidth="146.0">
                      <children>
-                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Deportes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleDeportesAction" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemSide" text="Deportes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="61.0" prefWidth="146.0">

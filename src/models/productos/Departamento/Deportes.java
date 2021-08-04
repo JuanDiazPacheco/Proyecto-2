@@ -13,4 +13,14 @@ public class Deportes extends Producto {
 
     }
 
+    public static void init() {
+        seccion = "Deportes";
+    }
+
+    protected static String seccion;
+
+    public static String getSeccion() {
+        return seccion;
+    }
+
 }

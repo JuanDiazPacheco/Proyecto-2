@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -15,7 +14,7 @@ import utils.ControladorEscenas;
 import utils.FileManager.ClientesFiles;
 import utils.Forms.FormsFields;
 
-public class DepositoController extends FormsFields implements Initializable {
+public class DepositoController extends FormsFields {
 
     @FXML
     private TextField txtMonto;

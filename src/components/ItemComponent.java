@@ -1,5 +1,8 @@
 package components;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -19,10 +22,17 @@ public class ItemComponent extends VBox {
     public ItemComponent(String nombre, double precio, String imagen) {
         // Create instances of the objects
 
-        if (imagen == null)
+        if (imagen != null) {
+            try {
+                iView = new ImageView(new Image(new FileInputStream(imagen)));
+            } catch (IOException exception) {
+                System.out.println("ERROR " + exception.getMessage());
+                iView = new ImageView(new Image("/images/compu.jpg"));
+            }
+        } else
             iView = new ImageView(new Image("/images/compu.jpg"));
-        else
-            iView = new ImageView(new Image(imagen));
+
+        // iView = new ImageView(new Image(new File(imagen)));
 
         lblNombre = new Label(nombre);
         lblPrecio = new Label(StringCurrency.getMoney(precio));
