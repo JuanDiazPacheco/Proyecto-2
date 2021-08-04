@@ -10,6 +10,17 @@ import javafx.stage.Stage;
 public class ControladorEscenas {
     private static Stage stage;
     private static Object object;
+    private static ControladorEscenas cEscenas;
+
+    private ControladorEscenas() {
+
+    }
+
+    public static ControladorEscenas getInstance() {
+        if (cEscenas == null)
+            cEscenas = new ControladorEscenas();
+        return cEscenas;
+    }
 
     public static void nuevaEscena(URL url) {
         try {
@@ -25,6 +36,10 @@ public class ControladorEscenas {
 
     public static void setStage(Stage stageSent) {
         stage = stageSent;
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 
     public void enviarDatos(Object objectSent) {

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="347.0" prefWidth="552.0" style="-fx-background-color: #1EB2A6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.clientesListaController">
+<BorderPane prefHeight="347.0" prefWidth="552.0" style="-fx-background-color: #1EB2A6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.operaciones.admin.ClientesListaController">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="339.0" prefWidth="552.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>

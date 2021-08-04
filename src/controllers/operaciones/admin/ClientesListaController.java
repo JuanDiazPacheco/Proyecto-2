@@ -1,4 +1,4 @@
-package controllers;
+package controllers.operaciones.admin;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +17,7 @@ import models.perfiles.Cliente;
 import utils.ControladorEscenas;
 import utils.FileManager.ClientesFiles;
 
-public class clientesListaController implements Initializable {
+public class ClientesListaController implements Initializable {
 
     @FXML
     private TableView<Cliente> clientesTable;
@@ -63,7 +63,7 @@ public class clientesListaController implements Initializable {
 
     @FXML
     void handleRegresarAction(ActionEvent event) {
-        ControladorEscenas.nuevaEscena(getClass().getResource("/views/InicioView.fxml"));
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
     }
 
     @FXML

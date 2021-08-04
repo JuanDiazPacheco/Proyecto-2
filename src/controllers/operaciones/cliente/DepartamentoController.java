@@ -1,4 +1,4 @@
-package controllers;
+package controllers.operaciones.cliente;
 
 import java.net.URL;
 import java.util.LinkedList;
@@ -7,10 +7,13 @@ import java.util.ResourceBundle;
 
 import components.ItemComponent;
 import components.Carousel.CarouselComponent;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import utils.ControladorEscenas;
 
 public class DepartamentoController implements Initializable {
 
@@ -43,6 +46,40 @@ public class DepartamentoController implements Initializable {
         seccionesVBox.getChildren().add(new CarouselComponent(list));
         seccionesVBox.getChildren().add(new Label("Sub departamento 2"));
         seccionesVBox.getChildren().add(new CarouselComponent(list2));
+
+    }
+
+    // Operaciones Tienda
+
+    @FXML
+    void handleCarritoAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handleCuentaAction(ActionEvent event) {
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesCliente.fxml"));
+    }
+
+    // Cargar departamentos
+
+    @FXML
+    void handleComidaAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handleDeportesAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handleElectronicaAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handleRopaAction(MouseEvent event) {
 
     }
 

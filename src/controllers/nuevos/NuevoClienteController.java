@@ -1,10 +1,14 @@
-package controllers;
+package controllers.nuevos;
 
+import java.net.URL;
 import java.time.LocalDate;
+
 import java.util.Random;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,8 +22,9 @@ import models.perfiles.Cliente;
 import models.perfiles.Direccion;
 import utils.ControladorEscenas;
 import utils.FileManager.ClientesFiles;
+import utils.Forms.FormsFields;
 
-public class NuevoClienteController {
+public class NuevoClienteController extends FormsFields {
 
     private ClientesFiles cFiles = ClientesFiles.getInstance();
 
@@ -30,25 +35,18 @@ public class NuevoClienteController {
 
     @FXML
     private TextField txtNombre;
-
     @FXML
     private TextField txtApellido;
-
     @FXML
     private TextField txtColonia;
-
     @FXML
     private TextField txtEstado;
-
     @FXML
     private TextField txtCalle;
-
     @FXML
     private TextField txtCP;
-
     @FXML
     private TextField txtNumero;
-
     @FXML
     private TextField txtPassword;
 
@@ -56,7 +54,6 @@ public class NuevoClienteController {
 
     @FXML
     private Button btnRegresar;
-
     @FXML
     private Button btnAceptar;
 
@@ -64,36 +61,41 @@ public class NuevoClienteController {
 
     @FXML
     private Label lblNombre;
-
     @FXML
     private Label lblApellidos;
-
     @FXML
     private Label lblFecha;
-
     @FXML
     private Label lblCalle;
-
     @FXML
     private Label lblColonia;
-
     @FXML
     private Label lblNumero;
-
     @FXML
     private Label lblCP;
-
     @FXML
     private Label lblEstado;
-
     @FXML
     private Label lblPass;
 
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        // TODO Auto-generated method stub
+        super.initialize(arg0, arg1);
+
+        numbersFieldsList.add(txtCP);
+        numbersFieldsList.add(txtNumero);
+        numbersFieldsList.add(txtPassword);
+
+        letterFieldsList.add(txtNombre);
+        letterFieldsList.add(txtApellido);
+        letterFieldsList.add(txtCalle);
+        letterFieldsList.add(txtColonia);
+        letterFieldsList.add(txtEstado);
+    }
+
     @FXML
     void handleAceptarAction(ActionEvent event) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Un error ha ocurrido");
 
         if (areEmpty()) {
             alert.setContentText("No dejes campos vacios.");
@@ -131,37 +133,13 @@ public class NuevoClienteController {
             return false;
     }
 
-    // Metodos para verificar campos de numero
-
-    private boolean verifyAllNumbers() {
-        return verifyNumbers(txtPassword) && verifyNumbers(txtNumero) && verifyNumbers(txtCP);
-    }
-
-    private boolean verifyNumbers(TextField textField) {
-        return textField.getText().matches("[0-9]*$");
-    }
-
-    // Metodos para verificar ampos de letras
-
-    private boolean verifyAllLetters() {
-        return verifyLetters(txtNombre) && verifyLetters(txtApellido) && verifyLetters(txtCalle)
-                && verifyLetters(txtColonia) && verifyLetters(txtEstado);
-    }
-
-    private boolean verifyLetters(TextField textField) {
-        return textField.getText().matches("[a-zA-Z\s]*$");
-    }
-
     // Metodos para verificar campos vacios
 
-    private boolean areEmpty() {
-        return isEmpty(txtNombre) && isEmpty(txtApellido) && isEmpty(txtCalle) && isEmpty(txtColonia) && isEmpty(txtCP)
-                && isEmpty(txtEstado) && isEmpty(txtPassword) && isEmpty(txtNumero);
-    }
-
-    private boolean isEmpty(TextField textField) {
-        return textField.getText().isBlank();
-    }
+    /*
+     * private boolean areEmpty() { return isEmpty(txtNombre) | isEmpty(txtApellido)
+     * | isEmpty(txtCalle) | isEmpty(txtColonia) | isEmpty(txtCP) |
+     * isEmpty(txtEstado) | isEmpty(txtPassword) | isEmpty(txtNumero); }
+     */
 
     @FXML
     void handleRegresarAction(ActionEvent event) {

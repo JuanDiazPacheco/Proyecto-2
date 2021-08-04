@@ -1,4 +1,4 @@
-package controllers.operacionesControllers;
+package controllers.operaciones.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.Label;
 import models.perfiles.Cliente;
 import utils.ControladorEscenas;
@@ -15,19 +15,10 @@ import utils.FileManager.ClientesFiles;
 public class OperacionesController implements Initializable {
 
     @FXML
-    private Button btnRegresar;
-
-    @FXML
     private Label lblNombre;
 
     @FXML
     private Label lblSaldo;
-
-    @FXML
-    private Button btnCarrito;
-
-    @FXML
-    private Button btnDeposito;
 
     private ClientesFiles cFiles;
     private Cliente cliente;
@@ -39,7 +30,7 @@ public class OperacionesController implements Initializable {
 
         // Instancianso objetos esenciales
         cFiles = ClientesFiles.getInstance();
-        controlador = new ControladorEscenas();
+        controlador = ControladorEscenas.getInstance();
 
         // Instancacias del cliente
         numeroCuenta = (String) controlador.recibirDatos();
@@ -52,7 +43,7 @@ public class OperacionesController implements Initializable {
 
     @FXML
     void handleDepositoAction(ActionEvent event) {
-        ControladorEscenas.nuevaEscena(getClass().getResource("/views/DepositoView.fxml"));
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/DepositoView.fxml"));
     }
 
     @FXML
@@ -61,8 +52,13 @@ public class OperacionesController implements Initializable {
     }
 
     @FXML
-    void handleRegresarAction(ActionEvent event) {
+    void handleCerrarAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/InicioView.fxml"));
+    }
+
+    @FXML
+    void handleVolverAction(ActionEvent event) {
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/DepartamentoView.fxml"));
     }
 
 }

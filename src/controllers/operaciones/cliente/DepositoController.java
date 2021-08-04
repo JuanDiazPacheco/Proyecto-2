@@ -1,4 +1,4 @@
-package controllers.operacionesControllers;
+package controllers.operaciones.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,8 +13,9 @@ import models.perfiles.Cliente;
 import models.perfiles.cuentas.CuentaSaldo;
 import utils.ControladorEscenas;
 import utils.FileManager.ClientesFiles;
+import utils.Forms.FormsFields;
 
-public class DepositoController implements Initializable {
+public class DepositoController extends FormsFields implements Initializable {
 
     @FXML
     private TextField txtMonto;
@@ -30,7 +31,7 @@ public class DepositoController implements Initializable {
 
         // Instancianso objetos esenciales
         cFiles = ClientesFiles.getInstance();
-        controlador = new ControladorEscenas();
+        controlador = ControladorEscenas.getInstance();
 
         // Instancacias del cliente
         numeroCuenta = (String) controlador.recibirDatos();
@@ -42,17 +43,20 @@ public class DepositoController implements Initializable {
     void AceptarAction(ActionEvent event) {
         double deposito;
         System.out.println("Ingrese el monto que desea depositar");
-        deposito = Double.valueOf(txtMonto.getText());
-        // Verificar si funciona!!
-        cuentaAhorro.depositarDinero(deposito);
 
-        cFiles.escribirArchivoCliente(cliente);
-        ControladorEscenas.nuevaEscena(getClass().getResource("/views/OperacionesCliente.fxml"));
+        if (verifyNumbers(txtMonto)) {
+            deposito = Double.valueOf(txtMonto.getText());
+            // Verificar si funciona!!
+            cuentaAhorro.depositarDinero(deposito);
+
+            cFiles.escribirArchivoCliente(cliente);
+            ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesCliente.fxml"));
+        }
     }
 
     @FXML
     void VolverAction(ActionEvent event) {
-        ControladorEscenas.nuevaEscena(getClass().getResource("/views/OperacionesCliente.fxml"));
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesCliente.fxml"));
     }
 
     @FXML

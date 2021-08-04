@@ -43,8 +43,8 @@ public class Cliente extends Persona {
         return cuentaAhorro;
     }
 
-    public String getDinero() {
-        return String.valueOf(this.cuentaAhorro.getDinero());
+    public String getSaldoAhorro() {
+        return String.valueOf(cuentaAhorro.getDinero());
     }
 
     // GETTERS para la listas
@@ -61,7 +61,7 @@ public class Cliente extends Persona {
     }
 
     public StringProperty getSaldoAhorroProperty() {
-        StringProperty property = new SimpleStringProperty(getDinero());
+        StringProperty property = new SimpleStringProperty(getSaldoAhorro());
         return property;
     }
 

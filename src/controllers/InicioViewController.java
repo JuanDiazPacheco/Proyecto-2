@@ -42,7 +42,7 @@ public class InicioViewController implements Initializable {
 
     @FXML
     void handleRegistroAction(ActionEvent event) {
-        ControladorEscenas.nuevaEscena(getClass().getResource("/views/NuevoClienteView.fxml"));
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/nuevos/NuevoClienteView.fxml"));
     }
 
     @FXML
@@ -98,20 +98,24 @@ public class InicioViewController implements Initializable {
 
             if (numeroCuenta.equals("admin") && NIP.equals("admin")) {
                 System.out.println("Haciendo login");
-                // ControladorEscenas.nuevaEscena(getClass().getResource("/views/ClientesListaView.fxml"));
-                ControladorEscenas.nuevaEscena(getClass().getResource("/views/DepartamentoView.fxml"));
+                ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
 
             } else if (ClientesFiles.mapaPass.containsKey(numeroCuenta) && verificarPass(numeroCuenta, NIP)) {
                 // Metodo para cargar OperacionesView
                 System.out.println("Haciendo login");
-                ControladorEscenas controlador = new ControladorEscenas();
+
+                ControladorEscenas controlador = ControladorEscenas.getInstance();
                 controlador.enviarDatos(numeroCuenta);
-                ControladorEscenas.nuevaEscena(getClass().getResource("/views/OperacionesCliente.fxml"));
+
+                ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/DepartamentoView.fxml"));
+
             } else {
+
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText("Un error ha ocurrido");
                 alert.setContentText("Verifica que has ingresado bien tus datos.");
                 alert.show();
+
             }
         });
 
