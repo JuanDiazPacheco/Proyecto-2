@@ -16,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import models.productos.Producto;
 import models.productos.ProductoFactory;
+import models.productos.Departamento.Deportes;
 import models.productos.Departamento.Comida.Comida;
 import models.productos.Departamento.Electronicos.Electronicos;
 import models.productos.Departamento.Ropa.Ropa;
@@ -70,25 +71,28 @@ public class NuevoProductoController extends FormsFields {
     @FXML
     void handleDepartamento(ActionEvent event) {
         int index = cBDepartamento.getSelectionModel().getSelectedIndex();
+
+        Electronicos.init();
+        Comida.init();
+        Ropa.init();
+        Deportes.init();
+
         if (index != -1) {
             cBSDepartamento.getItems().clear();
             if (index != 3) {
                 switch (index) {
                     case 0:
-                        Electronicos.init();
                         cBSDepartamento.getItems().addAll(Electronicos.getSDepartamentosList());
                         break;
                     case 1:
-                        Comida.init();
                         cBSDepartamento.getItems().addAll(Comida.getSDepartamentosList());
                         break;
                     case 2:
-                        Ropa.init();
                         cBSDepartamento.getItems().addAll(Ropa.getSDepartamentosList());
                         break;
                 }
-
             }
+
         }
     }
 
@@ -114,7 +118,7 @@ public class NuevoProductoController extends FormsFields {
                 alert.setHeaderText("Operacion exitosa");
                 alert.setContentText("Se ha creado con exito el producto, regresando.");
                 alert.show();
-                ControladorEscenas.nuevaEscena(getClass().getResource("/views/InicioView.fxml"));
+                ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
             }
         } else {
             alert.setContentText("Selecciona un departamento.");
@@ -124,9 +128,9 @@ public class NuevoProductoController extends FormsFields {
     }
 
     private void nuevoProducto() {
-        // TODO prueba con el que no tiene departamento
-        String departamento = cBDepartamento.getSelectionModel().getSelectedItem().toString();
-        String sDepartmento = cBSDepartamento.getSelectionModel().getSelectedItem().toString();
+        String departamento = cBDepartamento.getSelectionModel().getSelectedItem();
+        String sDepartmento = cBSDepartamento.getSelectionModel().getSelectedItem();
+
         String[] atributos = new String[5];
 
         atributos[0] = tFNombre.getText();
@@ -134,7 +138,7 @@ public class NuevoProductoController extends FormsFields {
         atributos[2] = tFMarca.getText();
         atributos[3] = pFiles.copiarImagen(tFImagen.getText(), departamento);
 
-        if (!sDepartmento.equals(""))
+        if (sDepartmento != null)
             atributos[4] = sDepartmento;
         else
             atributos[4] = "";
@@ -144,6 +148,11 @@ public class NuevoProductoController extends FormsFields {
         Producto nuevo = ProductoFactory.nuevoProducto(departamento, atributos);
 
         pFiles.escribir(nuevo);
+    }
+
+    @FXML
+    void handleVolver(ActionEvent event) {
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
     }
 
     @FXML
@@ -157,15 +166,10 @@ public class NuevoProductoController extends FormsFields {
         }
     }
 
-    @FXML
-    void handleVolver(ActionEvent event) {
-        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
-    }
-
     private void initFileChooser() {
         fChooser = new FileChooser();
         fChooser.setInitialDirectory(new File("."));
-        fChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Imagenes", "*.jpg", "*.png"));
+        fChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
     }
 
 }

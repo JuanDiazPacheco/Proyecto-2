@@ -48,7 +48,7 @@ public class OperacionesController implements Initializable {
 
     @FXML
     void handleCarritoAction(ActionEvent event) {
-        // ControladorEscenas.nuevaEscena(getClass().getResource("/views/CarritoView.fxml"));
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/CarritoView.fxml"));
     }
 
     @FXML

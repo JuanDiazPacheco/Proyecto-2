@@ -13,7 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+
 import javafx.scene.layout.VBox;
 import models.productos.Producto;
 import models.productos.Departamento.Deportes;
@@ -27,10 +27,6 @@ public class DepartamentoController implements Initializable {
 
     @FXML
     private VBox seccionesVBox;
-
-    /*
-     * private List<ItemComponent> list; private List<ItemComponent> list2;
-     */
 
     private List<List<ItemComponent>> lista;
 
@@ -46,30 +42,12 @@ public class DepartamentoController implements Initializable {
         Deportes.init();
 
         lista = new LinkedList<List<ItemComponent>>();
-        /*
-         * list = new LinkedList<>(); list2 = new LinkedList<>();
-         */
-
-        /*
-         * list.add(new ItemComponent("Pepsi", 10, null)); list.add(new
-         * ItemComponent("Coca", 10, null)); list.add(new ItemComponent("Mirinda", 10,
-         * null)); list.add(new ItemComponent("Sprite", 10, null)); list.add(new
-         * ItemComponent("TV", 15000, null)); list.add(new ItemComponent("Pool", 1000,
-         * null));
-         * 
-         * list2.add(new ItemComponent("Pepsi", 10, null)); list2.add(new
-         * ItemComponent("Coca", 10, null)); list2.add(new ItemComponent("Mirinda", 10,
-         * null)); list2.add(new ItemComponent("Sprite", 10, null)); list2.add(new
-         * ItemComponent("TV", 15000, null)); list2.add(new ItemComponent("Pool", 1000,
-         * null));
-         */
 
     }
 
     // Operaciones Tienda
 
     private void cargarSecciones(Set<String> labels, List<Producto> productos) {
-        // TODO revisar como borrar las listas
         lista.clear();
         seccionesVBox.getChildren().clear();
 
@@ -77,7 +55,7 @@ public class DepartamentoController implements Initializable {
         for (String seccion : labels) {
             List<ItemComponent> listSeccion = new LinkedList<ItemComponent>();
             for (Producto producto : productos) {
-                if (producto.getSDepartamento().equals(seccion)) {
+                if (producto.getSDepartamento() == null || producto.getSDepartamento().equals(seccion)) {
                     listSeccion
                             .add(new ItemComponent(producto.getNombre(), producto.getPrecio(), producto.getImagen()));
                 }
@@ -87,24 +65,19 @@ public class DepartamentoController implements Initializable {
 
         int i = 0;
         for (String seccion : labels) {
-            // TODO if la lista de seccion esta vacia no agregar
-            seccionesVBox.getChildren().add(new Label(seccion));
 
-            seccionesVBox.getChildren().add(new CarouselComponent(lista.get(i)));
+            if (lista.get(i).size() != 0) {
+                seccionesVBox.getChildren().add(new Label(seccion));
+                seccionesVBox.getChildren().add(new CarouselComponent(lista.get(i)));
+            }
             i++;
         }
 
-        /* seccionesVBox.getChildren().add(new Label(sDepartamento[0])); */
-        /* seccionesVBox.getChildren().add(new CarouselComponent(list)); */
-        /* seccionesVBox.getChildren().add(new Label(sDepartamento[1])); */
-        /* seccionesVBox.getChildren().add(new CarouselComponent(list2)); */
     }
 
-    // TODO crear carrito view, controller y controlCarritoItem
-
     @FXML
-    void handleCarritoAction(MouseEvent event) {
-
+    void handleCarritoAction(ActionEvent event) {
+        ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/CarritoView.fxml"));
     }
 
     @FXML

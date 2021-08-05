@@ -10,7 +10,8 @@ public class Deportes extends Producto {
     }
 
     public Deportes() {
-
+        super();
+        this.departamento = "Deportes";
     }
 
     public static void init() {

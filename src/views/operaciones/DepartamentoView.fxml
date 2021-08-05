@@ -22,9 +22,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutX="361.0" layoutY="24.0" onMouseClicked="#handleCarritoAction" prefHeight="61.0" prefWidth="146.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="361.0" layoutY="24.0" prefHeight="61.0" prefWidth="146.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemMenu" text="Carrito" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleCarritoAction" prefHeight="65.0" prefWidth="146.0" styleClass="btnItemMenu" text="Carrito" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
