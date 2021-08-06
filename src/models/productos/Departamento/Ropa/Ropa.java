@@ -27,10 +27,16 @@ public class Ropa extends Producto {
         seccion = "Ropa y Zapatos";
     }
 
+    /**
+     * @return Set<String>
+     */
     public static Set<String> getSDepartamentosList() {
         return sDepartamentoList;
     }
 
+    /**
+     * @return String
+     */
     public static String getSeccion() {
         return seccion;
     }

@@ -27,10 +27,16 @@ public class Electronicos extends Producto {
         seccion = "Electronicos y Celulares";
     }
 
+    /**
+     * @return Set<String>
+     */
     public static Set<String> getSDepartamentosList() {
         return sDepartamentoList;
     }
 
+    /**
+     * @return String
+     */
     public static String getSeccion() {
         return seccion;
     }

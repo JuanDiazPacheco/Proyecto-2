@@ -9,22 +9,37 @@ public class Persona {
     private Direccion direccion;
     private LocalDate nacimiento;
 
+    /**
+     * @return String
+     */
     public String getNombreCompleto() {
         return String.join(" ", nombre, apellidoPaterno, apellidoMaterno);
     }
 
+    /**
+     * @return String
+     */
     public String getDireccion() {
         return direccion.toString();
     }
 
+    /**
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * @param direccion
+     */
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
 
+    /**
+     * @param nacimiento
+     */
     public void setNacimiento(LocalDate nacimiento) {
         this.nacimiento = nacimiento;
         // modificar que sea realista
@@ -54,6 +69,9 @@ public class Persona {
         this.direccion = new Direccion(direccion);
     }
 
+    /**
+     * @return String
+     */
     // Metodos
 
     public String toString() {

@@ -24,6 +24,10 @@ public class DepositoController extends FormsFields {
     private ControladorEscenas controlador;
     private CuentaSaldo cuentaAhorro;
 
+    /**
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String numeroCuenta;
@@ -38,6 +42,9 @@ public class DepositoController extends FormsFields {
         cuentaAhorro = cliente.getCuentaAhorro();
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void AceptarAction(ActionEvent event) {
         double deposito;
@@ -53,11 +60,17 @@ public class DepositoController extends FormsFields {
         }
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void VolverAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesCliente.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleKeyNumber(KeyEvent event) {
         try {

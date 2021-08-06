@@ -1,31 +1,82 @@
 package models.carrito;
 
-import models.productos.Producto;
+import java.util.LinkedList;
+import java.util.List;
+
+import components.Carrito.CarritoItem;
 
 public class Carrito implements ICarrito {
 
-    @Override
-    public void agregarItem(Producto producto) {
-        // TODO Auto-generated method stub
+    private static Carrito carrito;
+    private List<CarritoItem> items;
 
+    private Carrito() {
+        items = new LinkedList<>();
     }
 
-    @Override
-    public boolean deleteItem(Producto producto) {
-        // TODO Auto-generated method stub
-        return false;
+    /**
+     * @return Carrito
+     */
+    public static Carrito getInstance() {
+        if (carrito == null)
+            carrito = new Carrito();
+        return carrito;
     }
 
+    /**
+     * @param item
+     */
+    @Override
+    public void agregarItem(CarritoItem item) {
+        items.add(item);
+    }
+
+    /**
+     * @param item
+     * @return boolean
+     */
+    @Override
+    public boolean deleteItem(CarritoItem item) {
+        return items.remove(item);
+    }
+
+    /**
+     * @return double
+     */
     @Override
     public double calcularTotal() {
         // TODO Auto-generated method stub
-        return 0;
+        if (items.size() < 1)
+            return 0.0;
+        else {
+            double total = 0.0;
+            for (CarritoItem carritoItem : items) {
+                total += carritoItem.getProducto().getPrecio();
+            }
+            return total;
+        }
     }
 
+    /**
+     * @return boolean
+     */
     @Override
     public boolean checkOut() {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    /**
+     * @return List<CarritoItem>
+     */
+    @Override
+    public List<CarritoItem> loadItems() {
+        return this.items;
+    }
+
+    @Override
+    public void clearAll() {
+        items.clear();
     }
 
 }

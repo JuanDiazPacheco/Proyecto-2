@@ -28,12 +28,18 @@ public class ClientesFiles {
 
     }
 
+    /**
+     * @return ClientesFiles
+     */
     public static ClientesFiles getInstance() {
         if (cFiles == null)
             cFiles = new ClientesFiles();
         return cFiles;
     }
 
+    /**
+     * @param cliente
+     */
     // Metodo para crear el archivo de un cliente
 
     public void escribirArchivoCliente(Cliente cliente) {
@@ -53,10 +59,18 @@ public class ClientesFiles {
         }
     }
 
+    /**
+     * @param numeroCuenta
+     * @param password
+     */
     public void updateMap(String numeroCuenta, String password) {
         mapaPass.put(numeroCuenta, password);
     }
 
+    /**
+     * @param numeroCuenta
+     * @param password
+     */
     // Metodo para crear el archivo con los numeros de cuenta y sus contraseñas
 
     public void escribirArchivoClientes(String numeroCuenta, String password) {
@@ -105,6 +119,9 @@ public class ClientesFiles {
         }
     }
 
+    /**
+     * @return boolean
+     */
     // METODOS CARGAR ARCHIVOS
 
     // Metodo para cargar el mapa de contraseñas y el set de numero de cuentas
@@ -130,6 +147,10 @@ public class ClientesFiles {
         return cargo;
     }
 
+    /**
+     * @param numeroCuenta
+     * @return Cliente
+     */
     // Metodo para cargar los datos de un cliente de un archivo
     // Intentar crear mejor objetos cuenta ahorro y asociarlo al cliente
 

@@ -8,6 +8,10 @@ public class StringCurrency {
     // Create a formatter given the Locale
     private static NumberFormat dollarFormat = NumberFormat.getCurrencyInstance(usa);
 
+    /**
+     * @param dinero
+     * @return String
+     */
     public static String getMoney(Double dinero) {
         return dollarFormat.format(dinero);
     }

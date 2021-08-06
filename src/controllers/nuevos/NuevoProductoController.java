@@ -54,6 +54,10 @@ public class NuevoProductoController extends FormsFields {
     @FXML
     private ComboBox<String> cBSDepartamento;
 
+    /**
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -68,6 +72,9 @@ public class NuevoProductoController extends FormsFields {
         cBDepartamento.getItems().addAll("Electronicos y Celulares", "Comida y Bebidas", "Ropa y Zapatos", "Deportes");
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleDepartamento(ActionEvent event) {
         int index = cBDepartamento.getSelectionModel().getSelectedIndex();
@@ -96,6 +103,9 @@ public class NuevoProductoController extends FormsFields {
         }
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleCrear(ActionEvent event) {
 
@@ -150,11 +160,17 @@ public class NuevoProductoController extends FormsFields {
         pFiles.escribir(nuevo);
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleVolver(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleFile(ActionEvent event) {
         fImagen = fChooser.showOpenDialog(ControladorEscenas.getStage());

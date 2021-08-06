@@ -34,6 +34,10 @@ public class ClientesListaController implements Initializable {
     @FXML
     private Button btnVerMas;
 
+    /**
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cFiles = ClientesFiles.getInstance();
@@ -61,11 +65,17 @@ public class ClientesListaController implements Initializable {
 
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleRegresarAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesAdmin.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleVerAction(ActionEvent event) {
         Cliente cliente = clientesTable.getSelectionModel().getSelectedItem();

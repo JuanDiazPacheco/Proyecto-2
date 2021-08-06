@@ -26,6 +26,9 @@ public class Direccion {
         this.numero = Byte.parseByte(datos[4]);
     }
 
+    /**
+     * @return String
+     */
     // Metodos Getters
 
     public String toString() {

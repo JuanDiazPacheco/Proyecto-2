@@ -24,6 +24,10 @@ public class OperacionesController implements Initializable {
     private Cliente cliente;
     private ControladorEscenas controlador;
 
+    /**
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         String numeroCuenta;
@@ -41,21 +45,33 @@ public class OperacionesController implements Initializable {
         lblSaldo.setText(cliente.getCuentaAhorro().getDinero() + "$");
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleDepositoAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/DepositoView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleCarritoAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/CarritoView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleCerrarAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/InicioView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleVolverAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/DepartamentoView.fxml"));

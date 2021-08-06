@@ -13,6 +13,11 @@ import models.productos.Departamento.Ropa.Zapatos;
 
 public class ProductoFactory {
 
+    /**
+     * @param departamento
+     * @param atributos
+     * @return Producto
+     */
     public static Producto nuevoProducto(String departamento, String[] atributos) {
         Producto nuevo = null;
 
@@ -42,10 +47,18 @@ public class ProductoFactory {
 
     }
 
+    /**
+     * @param sDepartamento
+     * @return Deportes
+     */
     private static Deportes nuevoDeportes(String sDepartamento) {
         return new Deportes();
     }
 
+    /**
+     * @param sDepartamento
+     * @return Ropa
+     */
     private static Ropa nuevaRopa(String sDepartamento) {
         switch (sDepartamento) {
             case "Playeras":
@@ -58,6 +71,10 @@ public class ProductoFactory {
 
     }
 
+    /**
+     * @param sDepartamento
+     * @return Electronicos
+     */
     private static Electronicos nuevoElectronico(String sDepartamento) {
         switch (sDepartamento) {
             case "Celulares":
@@ -70,6 +87,10 @@ public class ProductoFactory {
 
     }
 
+    /**
+     * @param sDepartamento
+     * @return Comida
+     */
     private static Comida nuevaComida(String sDepartamento) {
         switch (sDepartamento) {
             case "Frutas":

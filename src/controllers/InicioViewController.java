@@ -33,6 +33,10 @@ public class InicioViewController implements Initializable {
 
     private ClientesFiles cFiles;
 
+    /**
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -40,11 +44,17 @@ public class InicioViewController implements Initializable {
         cFiles.cargarCuentas();
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleRegistroAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/nuevos/NuevoClienteView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleIngresarAction(ActionEvent event) {
 
@@ -121,6 +131,11 @@ public class InicioViewController implements Initializable {
 
     }
 
+    /**
+     * @param cuenta
+     * @param password
+     * @return boolean
+     */
     private boolean verificarPass(String cuenta, String password) {
         return ClientesFiles.mapaPass.get(cuenta).equals(password);
     }

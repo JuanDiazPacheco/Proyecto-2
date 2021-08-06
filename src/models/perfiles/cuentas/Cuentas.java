@@ -17,6 +17,9 @@ public abstract class Cuentas {
         this.dinero = dinero;
     }
 
+    /**
+     * @return double
+     */
     // Getter Dinero
 
     public double getDinero() {

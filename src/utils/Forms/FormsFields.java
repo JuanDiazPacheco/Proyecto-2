@@ -18,6 +18,10 @@ public abstract class FormsFields implements Initializable {
 
     protected Alert alert;
 
+    /**
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         alert = new Alert(AlertType.ERROR);
@@ -29,6 +33,10 @@ public abstract class FormsFields implements Initializable {
         floatsFieldsList = new LinkedList<>();
     }
 
+    /**
+     * @param textField
+     * @return boolean
+     */
     protected boolean isEmpty(TextField textField) {
         boolean valor = textField.getText().isBlank();
         if (valor)
@@ -38,6 +46,10 @@ public abstract class FormsFields implements Initializable {
         return valor;
     }
 
+    /**
+     * @param textField
+     * @return boolean
+     */
     protected boolean verifyLetters(TextField textField) {
         String txt = textField.getText();
         boolean valor = txt.matches("[a-zA-Z\s]*$");
@@ -51,6 +63,10 @@ public abstract class FormsFields implements Initializable {
         return valor;
     }
 
+    /**
+     * @param textField
+     * @return boolean
+     */
     protected boolean verifyNumbers(TextField textField) {
         boolean valor = textField.getText().matches("[0-9]*$");
         if (!valor)
@@ -60,6 +76,10 @@ public abstract class FormsFields implements Initializable {
         return valor;
     }
 
+    /**
+     * @param textField
+     * @return boolean
+     */
     protected boolean verifyFloats(TextField textField) {
         boolean valor = textField.getText().matches("^\\d*\\.\\d+|\\d+\\.\\d*$");
         if (!valor)
@@ -69,6 +89,9 @@ public abstract class FormsFields implements Initializable {
         return valor;
     }
 
+    /**
+     * @return boolean
+     */
     protected boolean areEmpty() {
         boolean isCorrect = false;
         if (numbersFieldsList != null)
@@ -89,6 +112,9 @@ public abstract class FormsFields implements Initializable {
         return isCorrect;
     }
 
+    /**
+     * @return boolean
+     */
     protected boolean verifyAllNumbers() {
         boolean isCorrect = true;
         if (numbersFieldsList != null)
@@ -99,6 +125,9 @@ public abstract class FormsFields implements Initializable {
         return isCorrect;
     }
 
+    /**
+     * @return boolean
+     */
     protected boolean verifyAllFloats() {
         boolean isCorrect = true;
         if (numbersFieldsList != null)
@@ -109,6 +138,9 @@ public abstract class FormsFields implements Initializable {
         return isCorrect;
     }
 
+    /**
+     * @return boolean
+     */
     protected boolean verifyAllLetters() {
         boolean isCorrect = true;
         if (letterFieldsList != null)

@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import utils.ControladorEscenas;
 
 public class GUI extends Application {
+
     public static void mainGui(String[] args) {
         launch(args);
     }

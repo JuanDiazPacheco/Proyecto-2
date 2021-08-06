@@ -28,10 +28,16 @@ public class Comida extends Producto {
         sDepartamentoList.add("Frutas");
     }
 
+    /**
+     * @return Set<String>
+     */
     public static Set<String> getSDepartamentosList() {
         return sDepartamentoList;
     }
 
+    /**
+     * @return String
+     */
     public static String getSeccion() {
         return seccion;
     }

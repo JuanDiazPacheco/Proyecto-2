@@ -3,6 +3,8 @@ package components;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import components.Carrito.CarritoItem;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -10,7 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-
+import models.carrito.Carrito;
+import models.carrito.ICarrito;
+import models.productos.Producto;
 import utils.StringCurrency;
 
 public class ItemComponent extends VBox {
@@ -19,7 +23,21 @@ public class ItemComponent extends VBox {
     private Label lblPrecio;
     private Button btnAgregar;
 
-    public ItemComponent(String nombre, double precio, String imagen) {
+    // private Producto producto;
+
+    public ItemComponent(Producto producto) {
+        // this.producto=producto;
+        String nombre = producto.getNombre();
+        double precio = producto.getPrecio();
+        String imagen = producto.getImagen();
+
+        btnAgregar = new Button("Agregar");
+
+        btnAgregar.setOnAction(event -> {
+            ICarrito cart = Carrito.getInstance();
+            cart.agregarItem(new CarritoItem(producto));
+        });
+
         // Create instances of the objects
 
         if (imagen != null) {
@@ -37,13 +55,8 @@ public class ItemComponent extends VBox {
         lblNombre = new Label(nombre);
         lblPrecio = new Label(StringCurrency.getMoney(precio));
 
-        initialize();
-        this.getChildren().addAll(iView, lblNombre, lblPrecio, btnAgregar);
-    }
-
-    private void initialize() {
-        btnAgregar = new Button("Agregar");
         addStyles();
+        this.getChildren().addAll(iView, lblNombre, lblPrecio, btnAgregar);
     }
 
     private void addStyles() {

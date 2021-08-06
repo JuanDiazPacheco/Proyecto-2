@@ -32,6 +32,10 @@ public class DepartamentoController implements Initializable {
 
     private ProductosFiles pFiles;
 
+    /**
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         pFiles = ProductosFiles.getInstance();
@@ -45,6 +49,10 @@ public class DepartamentoController implements Initializable {
 
     }
 
+    /**
+     * @param labels
+     * @param productos
+     */
     // Operaciones Tienda
 
     private void cargarSecciones(Set<String> labels, List<Producto> productos) {
@@ -56,8 +64,7 @@ public class DepartamentoController implements Initializable {
             List<ItemComponent> listSeccion = new LinkedList<ItemComponent>();
             for (Producto producto : productos) {
                 if (producto.getSDepartamento() == null || producto.getSDepartamento().equals(seccion)) {
-                    listSeccion
-                            .add(new ItemComponent(producto.getNombre(), producto.getPrecio(), producto.getImagen()));
+                    listSeccion.add(new ItemComponent(producto));
                 }
             }
             lista.add(listSeccion);
@@ -75,16 +82,25 @@ public class DepartamentoController implements Initializable {
 
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleCarritoAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/CarritoView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleCuentaAction(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/OperacionesCliente.fxml"));
     }
 
+    /**
+     * @param event
+     */
     // Cargar departamentos
 
     @FXML
@@ -93,6 +109,9 @@ public class DepartamentoController implements Initializable {
         cargarSecciones(sDepaSet, pFiles.cargar(Comida.getSeccion()));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleDeportesAction(ActionEvent event) {
         Set<String> sDepaSet = new HashSet<>();
@@ -100,12 +119,18 @@ public class DepartamentoController implements Initializable {
         cargarSecciones(sDepaSet, pFiles.cargar(Deportes.getSeccion()));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleElectronicaAction(ActionEvent event) {
         Set<String> sDepaSet = Electronicos.getSDepartamentosList();
         cargarSecciones(sDepaSet, pFiles.cargar(Electronicos.getSeccion()));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleRopaAction(ActionEvent event) {
         Set<String> sDepaSet = Ropa.getSDepartamentosList();

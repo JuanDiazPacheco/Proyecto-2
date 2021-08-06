@@ -29,24 +29,39 @@ public class Cliente extends Persona {
         this.cuentaAhorro = new CuentaSaldo(Float.parseFloat(monto));
     }
 
+    /**
+     * @return String
+     */
     // GETTERS
 
     public String getNumeroCuenta() {
         return this.numeroCuenta;
     }
 
+    /**
+     * @return LinkedList<String>
+     */
     public LinkedList<String> getOperaciones() {
         return cuentaAhorro.getOperaciones();
     }
 
+    /**
+     * @return CuentaSaldo
+     */
     public CuentaSaldo getCuentaAhorro() {
         return cuentaAhorro;
     }
 
+    /**
+     * @return String
+     */
     public String getSaldoAhorro() {
         return String.valueOf(cuentaAhorro.getDinero());
     }
 
+    /**
+     * @return StringProperty
+     */
     // GETTERS para la listas
 
     public StringProperty getNombreCompletoProperty() {
@@ -55,26 +70,41 @@ public class Cliente extends Persona {
         return property;
     }
 
+    /**
+     * @return StringProperty
+     */
     public StringProperty getDireccionProperty() {
         StringProperty property = new SimpleStringProperty(getDireccion());
         return property;
     }
 
+    /**
+     * @return StringProperty
+     */
     public StringProperty getSaldoAhorroProperty() {
         StringProperty property = new SimpleStringProperty(getSaldoAhorro());
         return property;
     }
 
+    /**
+     * @param operaciones
+     */
     // SETTERS
 
     public void setOperaciones(LinkedList<String> operaciones) {
         cuentaAhorro.setOperaciones(operaciones);
     }
 
+    /**
+     * @param cuentaAhorro
+     */
     public void setCuentaAhorro(CuentaSaldo cuentaAhorro) {
         this.cuentaAhorro = cuentaAhorro;
     }
 
+    /**
+     * @return String
+     */
     // Otros métodos
 
     public String toString() {

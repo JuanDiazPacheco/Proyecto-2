@@ -20,6 +20,9 @@ public class Deportes extends Producto {
 
     protected static String seccion;
 
+    /**
+     * @return String
+     */
     public static String getSeccion() {
         return seccion;
     }

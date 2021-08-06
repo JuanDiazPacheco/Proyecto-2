@@ -1,14 +1,20 @@
 package models.carrito;
 
-import models.productos.Producto;
+import java.util.List;
+
+import components.Carrito.CarritoItem;
 
 public interface ICarrito {
 
-    void agregarItem(Producto producto);
+    void agregarItem(CarritoItem item);
 
-    boolean deleteItem(Producto producto);
+    boolean deleteItem(CarritoItem item);
 
     double calcularTotal();
 
     boolean checkOut();
+
+    List<CarritoItem> loadItems();
+
+    void clearAll();
 }

@@ -21,6 +21,9 @@ public class ProductosFiles {
 
     }
 
+    /**
+     * @return ProductosFiles
+     */
     public static ProductosFiles getInstance() {
         if (pFiles == null) {
             pFiles = new ProductosFiles();
@@ -28,6 +31,10 @@ public class ProductosFiles {
         return pFiles;
     }
 
+    /**
+     * @param departamento
+     * @return List<Producto>
+     */
     public List<Producto> cargar(String departamento) {
         List<Producto> list = new LinkedList<>();
 
@@ -62,6 +69,9 @@ public class ProductosFiles {
         return list;
     }
 
+    /**
+     * @param producto
+     */
     public void escribir(Producto producto) {
         File file;
 
@@ -83,6 +93,11 @@ public class ProductosFiles {
 
     }
 
+    /**
+     * @param origen
+     * @param departamento
+     * @return String
+     */
     public String copiarImagen(String origen, String departamento) {
         FileChannel src, dest;
         String ruta = "";
@@ -117,6 +132,9 @@ public class ProductosFiles {
 
     }
 
+    /**
+     * @param routeDestino
+     */
     private void nuevoDirImagen(File routeDestino) {
         try {
             routeDestino.mkdir();
@@ -125,6 +143,10 @@ public class ProductosFiles {
         }
     }
 
+    /**
+     * @param file
+     * @param departamento
+     */
     private void nuevoDepartamento(File file, String departamento) {
         try {
             file.createNewFile();

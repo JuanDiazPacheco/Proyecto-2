@@ -78,6 +78,10 @@ public class NuevoClienteController extends FormsFields {
     @FXML
     private Label lblPass;
 
+    /**
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -94,6 +98,9 @@ public class NuevoClienteController extends FormsFields {
         letterFieldsList.add(txtEstado);
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleAceptarAction(ActionEvent event) {
 
@@ -121,6 +128,9 @@ public class NuevoClienteController extends FormsFields {
 
     }
 
+    /**
+     * @return boolean
+     */
     // Metodo verificar fecha
 
     private boolean verifyDate() {
@@ -133,6 +143,9 @@ public class NuevoClienteController extends FormsFields {
             return false;
     }
 
+    /**
+     * @param event
+     */
     // Metodos para verificar campos vacios
 
     /*
@@ -146,6 +159,9 @@ public class NuevoClienteController extends FormsFields {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/InicioView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleKeyChar(KeyEvent event) {
         try {
@@ -163,6 +179,9 @@ public class NuevoClienteController extends FormsFields {
         }
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleKeyNumber(KeyEvent event) {
         try {
@@ -226,6 +245,9 @@ public class NuevoClienteController extends FormsFields {
         cFiles.escribirArchivoCliente(cliente);
     }
 
+    /**
+     * @return String
+     */
     private String genNumeroCuenta() {
         long numeroaleatorio = 0;
         String numeroCuenta;

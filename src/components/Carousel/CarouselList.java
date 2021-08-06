@@ -36,11 +36,17 @@ public class CarouselList implements ICarouselList {
         }
     }
 
+    /**
+     * @return Deque<ItemComponent>
+     */
     @Override
     public Deque<ItemComponent> getActiveItems() {
         return this.activeItems;
     }
 
+    /**
+     * @return ItemComponent
+     */
     @Override
     public ItemComponent nextItem() {
 
@@ -57,6 +63,9 @@ public class CarouselList implements ICarouselList {
         return activeItems.getLast();
     }
 
+    /**
+     * @return ItemComponent
+     */
     @Override
     public ItemComponent prevItem() {
         if (firstItemActive <= 0) {

@@ -24,21 +24,34 @@ public class OperacionesController implements Initializable {
     @FXML
     private Button btnRegresar;
 
+    /**
+     * @param event
+     */
     @FXML
     void handleClientes(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/operaciones/ClientesListaView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleNuevo(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/nuevos/NuevoProductoView.fxml"));
     }
 
+    /**
+     * @param event
+     */
     @FXML
     void handleRegresar(ActionEvent event) {
         ControladorEscenas.nuevaEscena(getClass().getResource("/views/InicioView.fxml"));
     }
 
+    /**
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Instancias de la interfaz
